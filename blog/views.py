@@ -9,3 +9,11 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+def profile(request):
+    return render(request , 'blog/profile.html',{})
+
+def post_del(request ,pk):
+    post = get_object_or_404(Post , pk=pk)
+    post.delete()
+    return redirect('post_list')
